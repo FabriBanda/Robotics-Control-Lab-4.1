@@ -43,7 +43,7 @@ python run_mujoco_simulation.py
 Luego abrir:
 http://127.0.0.1:8050 
 
-##Qué hicimos en la práctica
+## Qué hicimos en la práctica
 
 Se evaluó el comportamiento del robot variando manualmente las ganancias del controlador.
 
@@ -66,9 +66,9 @@ Las ganancias se ajustaron directamente en:
 so101_mujoco_pid_utils.py
 
 
-Código adicional para el estudio de Kp (Control Proporcional)
+## Código adicional para el estudio de Kp (Control Proporcional)
 
-## Para seleccionar de manera sistemática los valores adecuados de ganancia proporcional (Kp), se implementó código adicional con fines exclusivamente experimentales.
+Para seleccionar de manera sistemática los valores adecuados de ganancia proporcional (Kp), se implementó código adicional con fines exclusivamente experimentales.
 
 Este código fue utilizado únicamente para analizar cinco configuraciones diferentes de Kp en el controlador P. No fue utilizado para el ajuste de PD, PI ni PID.
 
@@ -81,49 +81,17 @@ El objetivo fue:
 Una vez seleccionado el mejor conjunto de Kp, este código experimental dejó de utilizarse.
 
 Cómo ejecutar el estudio de Kp (VS Code)
-## 1. Abrir el proyecto
+## 1. Realizar los mismos pasos anteriores
 
-File → Open Folder → selecciona la carpeta del proyecto.
+Crear entorno virtual, activarlo, instalar dependencias, etc.
 
-## 2. Crear entorno virtual
-
-Abrir terminal en VS Code:
-
-Terminal → New Terminal
-
-Ejecutar:
-
-python -m venv .venv
-
-## 3. Activar el entorno
-
-En Windows:
-
-.venv\Scripts\activate
-
-
-En Linux / Mac:
-
-source .venv/bin/activate
-
-## 4. Seleccionar el intérprete
-
-Ctrl + Shift + P
-
-→ Python: Select Interpreter
-→ selecciona .venv
-
-## 5. Instalar dependencias
-pip install -U pip
-pip install mujoco numpy scipy pandas matplotlib dash plotly
-
-## 6. Ejecutar el estudio de Kp
+## 2. Ejecutar el estudio de Kp
 python run_kp_study.py
 
 
 Este script:
 
-Ejecuta la trayectoria requerida:
+- Ejecuta la trayectoria requerida:
 
 1. posición inicial → cero
 
@@ -133,11 +101,11 @@ Ejecuta la trayectoria requerida:
 
 4. mantener nuevamente
 
-Aplica perturbaciones durante todo el movimiento
+- Aplica perturbaciones durante todo el movimiento
 
-Evalúa cinco configuraciones distintas de Kp
+- Evalúa cinco configuraciones distintas de Kp
 
-Genera gráficas comparativas
+- Genera gráficas comparativas
 
 ## 7. Resultados
 Las gráficas generadas se almacenan en:
@@ -147,7 +115,7 @@ Estas gráficas fueron utilizadas únicamente para seleccionar el valor final de
 
 # Filosofía de selección de ganancias
 - Se asignaron valores de Kp independientes por articulación.
--Las articulaciones proximales (hombro) utilizan mayores ganancias que las distales (muñeca).
+- Las articulaciones proximales (hombro) utilizan mayores ganancias que las distales (muñeca).
 - Se evaluaron cinco configuraciones.
 - La selección final se basó en estabilidad, velocidad de respuesta y robustez ante perturbaciones.
 
